@@ -25,7 +25,13 @@ public class AgentController {
 	@Autowired
 	AgentService service;
 
-	
+	@PostMapping("/saveagent")
+	public ResponseEntity<Agent>saveagentdata(@RequestBody Agent agent)
+	{
+		Agent agentdata=service.saveagentdata(agent);
+		
+		return new ResponseEntity<Agent>(agentdata, HttpStatus.OK);
+	}
 
 	@GetMapping("/getAllAgents")
 	public ResponseEntity<List<Agent>> getAllAgents() {

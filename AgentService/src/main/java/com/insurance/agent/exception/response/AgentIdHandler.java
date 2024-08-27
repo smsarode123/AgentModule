@@ -12,7 +12,8 @@ public class AgentIdHandler {
 
 	public ResponseEntity<ErrorResponse> AgentIdErrorHandler(InvalidAgentIdException agent) 
 	{
-		ErrorResponse response = new ErrorResponse(agent.getMessage(), agent.getClass().getName(), new Date(), 404);
+		
+		ErrorResponse response=new ErrorResponse(agent.getMessage(),agent.getClass().getName(),new Date(),404);
 		
 		return new ResponseEntity<ErrorResponse>(response, HttpStatus.NOT_FOUND);
 	}
