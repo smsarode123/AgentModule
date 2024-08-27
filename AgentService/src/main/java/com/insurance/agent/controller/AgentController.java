@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 import org.springframework.web.bind.annotation.PathVariable;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.insurance.agent.model.Agent;
 import com.insurance.agent.service.AgentService;
 
@@ -23,6 +24,8 @@ public class AgentController {
 
 	@Autowired
 	AgentService service;
+
+	
 
 	@GetMapping("/getAllAgents")
 	public ResponseEntity<List<Agent>> getAllAgents() {
@@ -34,10 +37,20 @@ public class AgentController {
 	}
 
 	@DeleteMapping("/deleteAgentById/{agentId}")
+
 	public ResponseEntity<String> deleteAgentById(@PathVariable("agentId") int agentId) {
 		service.deleteAgentById(agentId);
 
 		return new ResponseEntity<String>("deleted successfully", HttpStatus.GONE);
+
+	}
+
+	@GetMapping("/getSingleAgent/agentId")
+	public ResponseEntity<Agent> getSingleAgent(@PathVariable("agentId") int agentId)
+	{
+		Agent agentRef = service.getSingleAgent(agentId);
+		
+		return new ResponseEntity<Agent>(agentRef, HttpStatus.FOUND);
 
 	}
 
