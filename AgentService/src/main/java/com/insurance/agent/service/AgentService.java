@@ -8,4 +8,6 @@ public interface AgentService {
 
 	List<Agent> getAllAgents();
 
+	void deleteAgentById(int agentId);
+
 }
