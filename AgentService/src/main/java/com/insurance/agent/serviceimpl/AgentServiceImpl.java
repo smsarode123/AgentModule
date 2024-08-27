@@ -55,4 +55,21 @@ public class AgentServiceImpl implements AgentService {
 		
 	}
 
+	@Override
+	public Agent updateagentdata(int agentid, Agent agent) {
+		
+		Optional<Agent> agentdata=repository.findById(agentid);
+		
+		if(agentdata.isPresent())
+		{
+			return repository.save(agent);
+		}
+		else
+		{
+			throw new InvalidAgentIdException("Agent Id"+agentid+" Is Not Valid");
+		}
+		
+		
+	}
+
 }

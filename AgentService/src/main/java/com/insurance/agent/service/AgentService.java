@@ -17,4 +17,6 @@ public interface AgentService {
 
 	List<Agent> getAllAgents();
 
+	public Agent updateagentdata(int agentid, Agent agent);
+
 }

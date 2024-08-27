@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.insurance.agent.model.Agent;
@@ -58,6 +59,15 @@ public class AgentController {
 		
 		return new ResponseEntity<Agent>(agentRef, HttpStatus.FOUND);
 
+	}
+	
+	@PutMapping("/putagetn/{agentId}")
+	public ResponseEntity<Agent>updateagentdata(@PathVariable ("agentId") int agentid,@RequestBody Agent agent)
+	{
+		
+		Agent agentdata=service.updateagentdata(agentid,agent);
+		
+		return new ResponseEntity<Agent>(agentdata, HttpStatus.CREATED);
 	}
 
 }
