@@ -1,6 +1,5 @@
 package com.insurance.agent.service;
 
-
 import java.util.List;
 
 
@@ -8,10 +7,10 @@ import com.insurance.agent.model.Agent;
 
 public interface AgentService {
 
+	public List<Agent> getAllAgents();
 
-	Agent saveagentdata(Agent agent);
+	public Agent getSingleAgent(int agentId);
 
-	List<Agent> getAllAgents();
-
+	public Agent saveagentdata(Agent agent);
 
 }
