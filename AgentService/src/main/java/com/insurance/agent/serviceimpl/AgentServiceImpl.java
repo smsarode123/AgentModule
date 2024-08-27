@@ -1,5 +1,7 @@
 package com.insurance.agent.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,12 @@ public class AgentServiceImpl implements AgentService {
 
 		return agentdata;
 
+	}
+
+	@Override
+	public List<Agent> getAllAgents() {
+		
+		return repository.findAll();
 	}
 
 }
