@@ -45,7 +45,7 @@ public class AgentController {
 
 	}
 
-	@GetMapping("/getSingleAgent/agentId")
+	@GetMapping("/getSingleAgent/{agentId}")
 	public ResponseEntity<Agent> getSingleAgent(@PathVariable("agentId") int agentId)
 	{
 		Agent agentRef = service.getSingleAgent(agentId);
